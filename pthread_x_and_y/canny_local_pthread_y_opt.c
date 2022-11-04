@@ -14,7 +14,7 @@
 * permission may be granted only by Mike Heath or Prof. Sudeep Sarkar of
 * University of South Florida (sarkar@csee.usf.edu). Acknowledgment as
 * appropriate is respectfully requested.
-* 
+*
 *  Heath, M., Sarkar, S., Sanocki, T., and Bowyer, K. Comparison of edge
 *    detectors: a methodology and initial study, Computer Vision and Image
 *    Understanding 69 (1), 38-54, January 1998.
@@ -37,7 +37,7 @@
 * The user must input three parameters. These are as follows:
 *
 *   sigma = The standard deviation of the gaussian smoothing filter.
-*   tlow  = Specifies the low value to use in hysteresis. This is a 
+*   tlow  = Specifies the low value to use in hysteresis. This is a
 *           fraction (0-1) of the computed high threshold edge strength value.
 *   thigh = Specifies the high value to use in hysteresis. This fraction (0-1)
 *           specifies the percentage point in a histogram of the gradient of
@@ -511,7 +511,7 @@ void *blur_y(void *arguments)
    float dot, sum;
 
    if(VERBOSE) printf("   Bluring the image in the Y-direction.\n");
-   for(c=0;r<cols;c++){
+   for(c=0;c<cols;c++){
       for(r=row_s;r<row_e;r++){
          dot = 0.0;
          sum = 0.0;
@@ -521,10 +521,7 @@ void *blur_y(void *arguments)
                sum += kernel[center+rr];
             }
          }
-         if(VERBOSE) printf("   writing data to smoothedim....\n");
          (*smoothedim)[r*cols+c] = (short int)(dot*BOOSTBLURFACTOR/sum + 0.5);
-         if(VERBOSE) printf("       ....done\n");
-   
       }
    }
 }
