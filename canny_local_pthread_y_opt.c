@@ -521,7 +521,10 @@ void *blur_y(void *arguments)
                sum += kernel[center+rr];
             }
          }
+         if(VERBOSE) printf("   writing data to smoothedim....\n");
          (*smoothedim)[r*cols+c] = (short int)(dot*BOOSTBLURFACTOR/sum + 0.5);
+         if(VERBOSE) printf("       ....done\n");
+   
       }
    }
 }
