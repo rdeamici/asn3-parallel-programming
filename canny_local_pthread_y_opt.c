@@ -592,21 +592,21 @@ void gaussian_smooth(unsigned char *image, int rows, int cols, float sigma,
    }
 
    int yret[N_T];
-   struct thread_args_y args[N_T];
+   struct thread_args_y yargs[N_T];
 
    int row_per_t = rows/N_T;
 
    for(i=0; i<N_T; i++)
    {
-      args[i].tempim = tempim;
-      args[i].cols = cols;
-      args[i].rows = rows;
-      args[i].row_s = row_per_t*i;
-      args[i].row_e = row_per_t*(i+1);
-      args[i].center = center;
-      args[i].kernel = kernel;
-      args[i].smoothedim = smoothedim;
-      yret[i] = pthread_create(&thread[i], NULL, &blur_y, &args[i]);
+      yargs[i].tempim = tempim;
+      yargs[i].cols = cols;
+      yargs[i].rows = rows;
+      yargs[i].row_s = row_per_t*i;
+      yargs[i].row_e = row_per_t*(i+1);
+      yargs[i].center = center;
+      yargs[i].kernel = kernel;
+      yargs[i].smoothedim = smoothedim;
+      yret[i] = pthread_create(&thread[i], NULL, &blur_y, &yargs[i]);
    }
 
    for(i=0; i<N_T; i++)
