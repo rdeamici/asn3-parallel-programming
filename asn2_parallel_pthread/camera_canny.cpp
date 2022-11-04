@@ -103,6 +103,7 @@ int main(int argc, char **argv)
       * Perform the edge detection. All of the work takes place here.
       ****************************************************************************/
       if(VERBOSE) printf("Starting Canny edge detection.\n");
+
       if(dirfilename != NULL){
          sprintf(composedfname, "camera_s_%3.2f_l_%3.2f_h_%3.2f_frame%03d.fim",
          sigma, tlow, thigh, cur_image);
