@@ -494,7 +494,7 @@ struct thread_args_y
 void *blur_y(void *arguments)
 {
    /****************************************************************************
-   * Blur in the x - direction.
+   * Blur in the y - direction.
    ****************************************************************************/
    struct thread_args_y *args = arguments;
 
@@ -595,7 +595,6 @@ void gaussian_smooth(unsigned char *image, int rows, int cols, float sigma,
    struct thread_args_y args[N_T];
 
    int row_per_t = rows/N_T;
-   int i;
 
    for(i=0; i<N_T; i++)
    {
